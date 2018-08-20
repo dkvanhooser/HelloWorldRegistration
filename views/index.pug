@@ -1,5 +1,104 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1= 'Please register a new user'
+
+  form(method='POST' action='/register' id='userForm')
+    p First Name
+    input(
+    type='textbox'
+    name='firstName'
+    id='firstName'
+    )
+    p Last Name
+    input(
+    type='textbox'
+    name='lastName'
+    id='lastName'
+    )
+    p Address1
+    input(
+    type='textbox'
+    name='address1'
+    id='address1'
+    )
+    p Address2
+    input(
+    type='textbox'
+    name='address2'
+    id='address2'
+    )
+    p City
+    input(
+    type='textbox'
+    name='city'
+    id='city'
+    )
+    p State
+    input(
+    type='textbox'
+    name='state'
+    id='state'
+    )
+    p Zip Code
+    input(
+    type='textbox'
+    name='zipCode'
+    id='zipCode'
+    )
+    p Country
+    input(
+    type='textbox'
+    name='country'
+    id='country'
+    value='US'
+    disabled
+    )
+    p
+    button.btn.btn-primary(type='submit') Submit
+
+    script(src='https://code.jquery.com/jquery-3.3.1.min.js').
+    script(src='https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js').
+
+  script.
+    $(document).ready(function(){
+    		$('#userForm').validate({
+    			rules: {
+    				firstName : {
+                      required: true,
+                      rangelength: [2, 30]
+                  },
+                  lastName : {
+                        required: true,
+                        rangelength: [2, 30]
+                   },
+                  address1 : {
+                        required: true,
+          				rangelength: [3, 50]
+                   },
+                  address2 : {
+                      required: true,
+                      rangelength: [3, 50]
+                   },
+                  city : {
+                      required: true,
+                      rangelength: [2, 30]
+                   },
+                   state : {
+                      required: true,
+                      rangelength: [2, 2]
+                   },
+                   zipCode : {
+                      required: true,
+                      rangelength: [5, 10]
+                   },
+                   country : {
+                      required: true,
+                      rangelength: [2, 2]
+                   },
+                },
+                submitHandler: function(form){
+                  form.submit();
+                }
+            });
+    });
