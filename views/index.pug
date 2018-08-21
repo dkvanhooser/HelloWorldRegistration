@@ -1,104 +1,159 @@
 extends layout
 
 block content
-  h1= 'Please register a new user'
+	h1= 'Please register a new user'
 
-  form(method='POST' action='/register' id='userForm')
-    p First Name
-    input(
-    type='textbox'
-    name='firstName'
-    id='firstName'
-    )
-    p Last Name
-    input(
-    type='textbox'
-    name='lastName'
-    id='lastName'
-    )
-    p Address1
-    input(
-    type='textbox'
-    name='address1'
-    id='address1'
-    )
-    p Address2
-    input(
-    type='textbox'
-    name='address2'
-    id='address2'
-    )
-    p City
-    input(
-    type='textbox'
-    name='city'
-    id='city'
-    )
-    p State
-    input(
-    type='textbox'
-    name='state'
-    id='state'
-    )
-    p Zip Code
-    input(
-    type='textbox'
-    name='zipCode'
-    id='zipCode'
-    )
-    p Country
-    input(
-    type='textbox'
-    name='country'
-    id='country'
-    value='US'
-    disabled
-    )
-    p
-    button.btn.btn-primary(type='submit') Submit
+	form(method='POST' action='/register' id='userForm')
+		div.row
+			div.col-md-4 First Name
+				input.form-control(
+				type='textbox'
+				name='firstName'
+				id='firstName'
+				)
+			div.col-md-4 Last Name
+				input.form-control(
+				type='textbox'
+				name='lastName'
+				id='lastName'
+				)
+		div.row
+			div.col-md-4 Address1
+				input.form-control(
+				type='textbox'
+				name='address1'
+				id='address1'
+				)
+			div.col-md-4 Address2
+				input.form-control(
+				type='textbox'
+				name='address2'
+				id='address2'
+				)
+		div.row
+			div.col-md-4 City
+				input.form-control(
+				type='textbox'
+				name='city'
+				id='city'
+				)
+			div.col-md-4 State
+				select.form-control(
+				id='state',
+				name='state'
+				)
+					option Select a state
+					option(value="AL") Alabama
+					option(value="AK") Alaska
+					option(value="AZ") Arizona 
+					option(value="AR") Arkansas 
+					option(value="CA") California
+					option(value="CO") Colorado 
+					option(value="CT") Connecticut 
+					option(value="DE") Delaware 
+					option(value="DC") District Of Columbia 
+					option(value="FL") Florida 
+					option(value="GA") Georgia 
+					option(value="HI") Hawaii 
+					option(value="ID") Idaho
+					option(value="IL") Illinois 
+					option(value="IN") Indiana 
+					option(value="IA") Iowa 
+					option(value="KS") Kansas 
+					option(value="KY") Kentucky 
+					option(value="LA") Louisiana 
+					option(value="ME") Maine
+					option(value="MD") Maryland 
+					option(value="MA") Massachusetts 
+					option(value="MI") Michigan
+					option(value="MN") Minnesota 
+					option(value="MS") Mississippi 
+					option(value="MO") Missouri 
+					option(value="MT") Montana 
+					option(value="NE") Nebraska
+					option(value="NV") Nevada 
+					option(value="NH") New Hampshire 
+					option(value="NJ") New Jersey 
+					option(value="NM") New Mexico 
+					option(value="NY") New York 
+					option(value="NC") North Carolina
+					option(value="ND") North Dakota 
+					option(value="OH") Ohio
+					option(value="OK") Oklahoma 
+					option(value="OR") Oregon 
+					option(value="PA") Pennsylvania
+					option(value="RI") Rhode Island 
+					option(value="SC") South Carolina 
+					option(value="SD") South Dakota 
+					option(value="TN") Tennessee 
+					option(value="TX") Texas 
+					option(value="UT") Utah 
+					option(value="VT") Vermont 
+					option(value="VA") Virginia 
+					option(value="WA") Washington 
+					option(value="WV") West Virginia 
+					option(value="WI") Wisconsin 
+					option(value="WY") Wyoming
+		div.row
+			div.col-md-4 Zip Code
+				input.form-control(
+				type='textbox'
+				name='zipCode'
+				id='zipCode'
+				)
+			div.col-md-4 Country
+				input.form-control(
+				type='textbox'
+				name='country'
+				id='country'
+				value='US'
+				disabled
+				)
+		div.row
+			div.col-md-4
+				button.btn.btn-primary(type='submit') Submit
 
-    script(src='https://code.jquery.com/jquery-3.3.1.min.js').
-    script(src='https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js').
 
-  script.
-    $(document).ready(function(){
-    		$('#userForm').validate({
-    			rules: {
-    				firstName : {
-                      required: true,
-                      rangelength: [2, 30]
-                  },
-                  lastName : {
-                        required: true,
-                        rangelength: [2, 30]
-                   },
-                  address1 : {
-                        required: true,
-          				rangelength: [3, 50]
-                   },
-                  address2 : {
-                      required: true,
-                      rangelength: [3, 50]
-                   },
-                  city : {
-                      required: true,
-                      rangelength: [2, 30]
-                   },
-                   state : {
-                      required: true,
-                      rangelength: [2, 2]
-                   },
-                   zipCode : {
-                      required: true,
-                      rangelength: [5, 10]
-                   },
-                   country : {
-                      required: true,
-                      rangelength: [2, 2]
-                   },
-                },
-                submitHandler: function(form){
-                  form.submit();
-                }
-            });
-    });
+	script(src='https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js').
+
+	script.
+		$(document).ready(function(){
+			$('#userForm').validate({
+				rules: {
+					firstName : {
+					required: true,
+					rangelength: [2, 30]
+				},
+				lastName : {
+					required: true,
+					rangelength: [2, 30]
+				},
+				address1 : {
+					required: true,
+					rangelength: [3, 50]
+					},
+				address2 : {
+					required: true,
+					rangelength: [3, 50]
+				},
+				city : {
+					required: true,
+					rangelength: [2, 30]
+				},
+				state : {
+					required: true,
+				},
+				zipCode : {
+					required: true,
+					rangelength: [5, 10]
+				},
+				country : {
+					required: true,
+					rangelength: [2, 2]
+				},
+				},
+				submitHandler: function(form){
+				form.submit();
+				}
+			});
+		});
